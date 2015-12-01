@@ -1,0 +1,41 @@
+﻿<Window x:Class="Client.ApplicationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Client"
+        Title="ApplicationWindow" Height="300" Width="300"
+        WindowState="Maximized"
+        WindowStyle="None"
+        AllowsTransparency="True" 
+        ShowInTaskbar="False"
+        Closing="Window_Closing" >
+
+    <Window.Resources>
+        <DropShadowEffect x:Key="z-depth1" BlurRadius="5" ShadowDepth="1" Direction="270" Color="#CCCCCC"/>
+        <DropShadowEffect x:Key="z-depth2" BlurRadius="8" ShadowDepth="2.5" Direction="270" Color="#BBBBBB"/>
+        <DropShadowEffect x:Key="z-depth3" BlurRadius="14" ShadowDepth="4.5" Direction="270" Color="#BBBBBB"/>
+        <DropShadowEffect x:Key="z-depth4" BlurRadius="25" ShadowDepth="8" Direction="270" Color="#BBBBBB"/>
+        <DropShadowEffect x:Key="z-depth5" BlurRadius="35" ShadowDepth="13" Direction="270" Color="#BBBBBB"/>
+    </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding x:Name="CloseControlWindowCommand" CanExecute="CloseWindowCommand_CanExecute" Executed="CloseWindowCommand_Executed" Command="{x:Static local:ApplicationWindow.CloseWindow}">
+        </CommandBinding>
+        <CommandBinding x:Name="SwitchServerCommand" CanExecute="SwitchServer_CanExecute" Executed="SwitchServer_Execute" Command="{x:Static local:ApplicationWindow.SwitchServer}">
+        </CommandBinding>
+        <CommandBinding x:Name="RemoteCopyCommand" CanExecute="RemoteCopy_CanExecute" Executed="RemoteCopy_Execute" Command="{x:Static local:ApplicationWindow.RemoteCopy}">
+        </CommandBinding>
+        <CommandBinding x:Name="RemotePasteCommand" CanExecute="RemotePaste_CanExecute" Executed="RemotePaste_Execute" Command="{x:Static local:ApplicationWindow.RemotePaste}">
+        </CommandBinding>
+
+    </Window.CommandBindings>
+
+    <Grid Name="activeWindow" MouseDown="activeWindow_MouseDown" MouseUp="activeWindow_MouseUp" MouseWheel="activeWindow_MouseWheel" PreviewMouseMove="activeWindow_PreviewMouseMove"  >
+
+        <Grid.Background>
+            <SolidColorBrush Opacity="0.5" Color="White"/>
+        </Grid.Background>
+        <WrapPanel x:Name="stackPanel" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="100,90,100,0" >
+        </WrapPanel>
+       
+    </Grid>
+</Window>

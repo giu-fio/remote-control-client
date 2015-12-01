@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="Client.ServerTileUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             x:Name="ServerTile"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="150">
+    <Grid Background="{Binding Path=Color, ElementName=ServerTile }">        
+        <Label x:Name="nomeServerLabel"  Content="{Binding Path=NomeServer,ElementName=ServerTile }" HorizontalAlignment="Center" Height="auto"  VerticalAlignment="Top" Width="auto"  FontSize="17" FontFamily="Simplified Arabic"/>
+        <Label x:Name="indexLabel" Content="{Binding Path=Index, ElementName=ServerTile}"  HorizontalAlignment="Center" Height="auto"  VerticalAlignment="Center" Width="auto"  FontSize="35" />
+        <Image x:Name="completedImage" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"  Source="/img/ic_done_grey600_48dp.png" Opacity="0"/>
+
+        <StackPanel x:Name="downloadPanel" Orientation="Horizontal"  VerticalAlignment="Bottom" Opacity="0">
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Stretch" Height="3"  Width="130" Value="0"  Margin="2"/>
+            <Button x:Name="cancelButton" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"  >
+                <Image Source="img\ic_cancel_grey600_18dp.png" Width="10" Height="10"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+    
+</UserControl>
